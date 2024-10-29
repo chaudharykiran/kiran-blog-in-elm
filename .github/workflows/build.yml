@@ -41,6 +41,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+
+  # publish:
+
       # - name: Log in to the Docker Container Registry
       #   uses: aws-actions/amazon-ecr-login@v1
 
