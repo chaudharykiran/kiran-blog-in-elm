@@ -25,7 +25,7 @@ viewIntroduction =
             column [ width fill, spacing 5 ]
                 [ el [ Border.rounded 99999, width (px 80), height (px 80), clip ]
                     (image [ width fill ]
-                        { src = "/assets/kiran-pic.jpg", description = "My Avatar" }
+                        { src = "/images/kiran-pic.jpg", description = "My Avatar" }
                     )
                 , el [ Font.bold ] (text "Kiran Kumar Chaudhary")
                 , coloredText (rgb255 136 136 136) "Code. Learn. Share"

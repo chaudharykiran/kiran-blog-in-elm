@@ -11,28 +11,15 @@ COPY . .
 RUN npm install -g elm@0.19.1
 # Install Elm Land
 RUN npm install -g elm-land@0.20.1
+# Install htt-server for serving the app
+RUN npm install -g http-server
 
-# Copy source code and build the app
-# COPY . .
-# RUN npm run build
+# build the app
+RUN elm-land build
 
-# FROM nginx:1.25-alpine
-# WORKDIR /usr/share/nginx/html
+# Expost the port that http-server will use
+EXPOSE 8080
 
-# # Install jq in order to manipulate json files from script
-# # Note: `--no-cache` means update before install + remove the cache after install.
-# RUN apk add --no-cache jq
+# Run http-server to server dist folder
+CMD ["http-server", "dist", "-p", "8080"]
 
-# # Copy nginx config
-# COPY ./configs/nginx.default-virtual-host.conf /etc/nginx/conf.d/default.conf
-
-# # Add script to update config from env variables on container startup
-# COPY ./configs/nginx.on-startup.sh /docker-entrypoint.d/
-
-# # Make the script executable, otherwise it won't run
-# RUN chmod +x /docker-entrypoint.d/nginx.on-startup.sh
-
-# # # Copy bundle and assets
-# COPY --from=builder /app/dist /usr/share/nginx/html
-
-# EXPOSE 80

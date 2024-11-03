@@ -33,7 +33,7 @@ content =
         , column [ spacing 5 ]
             [ el []
                 (image [ width (px 600), height (px 600) ]
-                    { src = "/assets/kiran-pic.jpg"
+                    { src = "/images/kiran-pic.jpg"
                     , description = "Kiran Kumar Chaudhary"
                     }
                 )
